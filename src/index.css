@@ -1,0 +1,613 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Declarations */
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('./assets/fonts/Pokemon Solid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelcraft';
+  src: url('./assets/fonts/Pixelcraft - Personal Use.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pixelify Sans';
+  src: url('./assets/fonts/PixelifySans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AR One Sans';
+  src: url('./assets/fonts/AROneSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AR One Sans';
+  src: url('./assets/fonts/AROneSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AR One Sans';
+  src: url('./assets/fonts/AROneSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AR One Sans';
+  src: url('./assets/fonts/AROneSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'AR One Sans', sans-serif;
+  color: #ffffff;
+  background: #020813;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #020813;
+  color: #ffffff;
+  font-family: 'AR One Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout Utilities */
+.content-width {
+  width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #020813;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.brand-text {
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #f6ca1c;
+}
+
+.signup-button {
+  border: 0;
+  border-radius: 8px;
+  background: #f6ca1c;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 18px;
+  text-transform: uppercase;
+  box-shadow: 2px 3px 0 #000000;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.signup-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.signup-button:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.menu-button {
+  display: none;
+  color: #fff;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.hero-gif {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: pixelated;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+}
+
+.hero-logo {
+  width: min(520px, 90vw);
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+.primary-button {
+  margin-top: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: #f6ca1c;
+  color: #000000;
+  cursor: pointer;
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 32px;
+  text-transform: uppercase;
+  box-shadow: 3px 4px 0 #000000;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.primary-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.primary-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #000000;
+}
+
+.hero-tagline {
+  margin-top: 24px;
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: clamp(11px, 1.4vw, 15px);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Courses Section */
+.courses-section {
+  background: #061019;
+  padding: 56px 0 64px;
+}
+
+.courses-section h2 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 0 32px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.course-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.search-box {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.search-box input {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  outline: none;
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 13px;
+  transition: border-color 0.2s ease;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-box input:focus {
+  border-color: #f6ca1c;
+}
+
+.search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category {
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.category:hover, .category.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.course-card {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #091722;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.course-art-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.course-copy {
+  padding: 16px 20px 20px;
+}
+
+.course-label {
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: lowercase;
+  display: block;
+}
+
+.course-title {
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 2px 0 8px;
+}
+
+.course-desc {
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.explore-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 12px 36px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #000000;
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.explore-button:hover {
+  background: #f6ca1c;
+  transform: scale(1.03);
+}
+
+.empty-state {
+  text-align: center;
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 40px 0;
+}
+
+/* Journey Section */
+.journey-section {
+  background: #030a12;
+  padding: 64px 0;
+}
+
+.journey-section h2 {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  border-radius: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stats dt {
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: bold;
+  line-height: 1;
+}
+
+.stats dd {
+  font-family: 'Pixelcraft', monospace, sans-serif;
+  font-size: clamp(12px, 1.3vw, 16px);
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 8px 0 0;
+}
+
+.mint { color: #1cffce; }
+.yellow { color: #fec249; }
+.pink { color: #f19bff; }
+.green { color: #76f974; }
+
+/* Footer */
+.footer {
+  background: #020810;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 48px 0 64px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+}
+
+.footer-column h3 {
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 16px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column a {
+  font-family: 'AR One Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #f6ca1c;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #020813;
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-links.is-open {
+    display: flex;
+  }
+  .hero {
+    height: 540px;
+  }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .category-list {
+    width: 100%;
+  }
+  .footer-columns {
+    grid-template-columns: 1fr;
+  }
+}
