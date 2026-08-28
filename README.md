@@ -1,3 +1,2 @@
-# CodeDex
-
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-wlqax11i)
+#CodeDex 
+front end 
